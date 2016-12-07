@@ -6,25 +6,19 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>Nome do site/jogo</title>
+        <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="css/frame.css" rel="stylesheet" type="text/css"/>
         <link href="css/estilo.css" rel="stylesheet" type="text/css"/>
-        <link href="css/jogar.css" rel="stylesheet" type="text/css"/>
-        <script src="js/jogar.js" type="text/javascript"></script>
+        <style>
+            .jogo {
+
+            }
+        </style>
         <script>
-            function Mudarestado(el) {
-                var display = document.getElementById(el).style.display;
-                if (display == "none")
-                    document.getElementById(el).style.display = 'block';
-                else
-                    document.getElementById(el).style.display = 'none';
-            }
-            function criarConta() {
-                window.location.replace("criarContar.html");
-            }
             
+
         </script>
     </head>
     <body>
@@ -36,13 +30,9 @@ and open the template in the editor.
 
             </div>
             <div class="col-dg-2 login" id="minhaDiv">
-
-
-                <span class="span">Login</span>
-                <input type="text" placeholder="Usuário">
-                <input type="password" placeholder="Senha">
-                <input type="button" class="btn_criarConta" value="Criar conta" onclick="criarConta()">
-                <button type="button" class="btn_logar" onclick="Mudarestado('minhaDiv')">Login</button>
+                
+                
+                <a href="perfilUsuario.jsp">nome Usuário</a>
             </div>
             <div class="col-dg-2">
 
@@ -60,10 +50,10 @@ and open the template in the editor.
                         <a href="inicio.jsp">Inicio</a>
                     </li>
                     <li class="col-dg-3">
-                        <a href="jogar.html">Jogar</a>
+                        <a href="jogar.jsp">Jogar</a>
                     </li>
                     <li class="col-dg-3">
-                        <a href="comoJogar.html">Como Jogar</a>
+                        <a href="comoJogar.jsp">Como Jogar</a>
                     </li>
                     <li class="col-dg-3">
                         <a href="rankings.jsp">Rankings</a>
@@ -75,41 +65,18 @@ and open the template in the editor.
             </div>
         </div>
 
-        <div id="caixaJogo" class="col-dg-12">
+        <div id="caixaJogo" class="col-dg-12 ">
             <div class="col-dg-2 cor2">
 
             </div>
 
-            <div class="col-dg-8 cor conteudo" onload="verificaLogin()">
-                <div id="caixaVerificaLogin" class="col-dg-12">
-                    <h2>Bem Vindo</h2>
-                    <div id="caixaJogar">
-                        <div class="col-dg-3">
-                            <div id="usuario">usuario
-                                <div id="infoUsuario">
-                                    informações
-                                </div>
-
-                            </div>
-
-                        </div>
-                        <div class="col-dg-6">
-                            <div id="menuJogo">Menu
-                                <div id="iniciarJogo">
-                                    <button onclick="iniciarJogo()">Iniciar Jogo!</button>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-dg-3">
-                            <div id="pessoasOnline">pessoas onlines
-                                <div id="nomesPessoasOnline">
-                                    nomes
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
+            <div class="col-dg-8 cor conteudo">
+                <div>
+                    <h1>Fale Conosco</h1>
+                    <p></p>
+                    <p>Entre em contato conosco para esclarecer dúvidas, relatar erros, dar sugestões, críticas construtivas ou elogios!</p>
+                    
+                    <a href="mailto:#">emaildosite@gmail.com</a>
                 </div>
             </div>
 
@@ -131,8 +98,8 @@ and open the template in the editor.
                     <div class="col-dg-3">
                         <h3>Sobre</h3>
                         <ul>
-                            <li><a href="quemsomos.html">Quem somos</a></li>
-                            <li><a href="faleConosco.html">Fale Conosco</a></li>
+                            <li><a href="quemsomos.jsp">Quem somos</a></li>
+                            <li><a href="faleConosco.jsp">Fale Conosco</a></li>
                         </ul>
                     </div>
                     <div class="col-dg-3">
@@ -146,13 +113,13 @@ and open the template in the editor.
                         <h3>Nome Jogo</h3>
                         <ul>
                             <li><a href="criarContar.html">Criar conta</a></li>
-                            <li><a href="jogar.html">Jogar</a></li>
+                            <li><a href="jogar.jsp">Jogar</a></li>
                         </ul>
                     </div>
                     <div class="col-dg-2">
                         <h3>O jogo</h3>
                         <ul>
-                            <li><a href="comoJogar.html">Como jogar</a></li>
+                            <li><a href="comoJogar.jsp">Como jogar</a></li>
                             <li><a href="rankings.jsp">Rankings</a></li>
                         </ul>
                     </div>

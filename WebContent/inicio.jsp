@@ -28,6 +28,7 @@ and open the template in the editor.
             <div class="col-dg-8 vazio">
 
             </div>
+            <jsp:include page="formUsuario.jsp"/>
             <div class="col-dg-2">
 
             </div>
@@ -44,17 +45,16 @@ and open the template in the editor.
                         <a href="inicio.jsp">Inicio</a>
                     </li>
                     <li class="col-dg-3">
-                        <a href="jogar.html">Jogar</a>
+                        <a href="jogar.jsp">Jogar</a>
                     </li>
                     <li class="col-dg-3">
-                        <a href="comoJogar.html">Como Jogar</a>
+                        <a href="comoJogar.jsp">Como Jogar</a>
                     </li>
                     <li class="col-dg-3">
                         <a href="rankings.jsp">Rankings</a>
                 </ul>
             </div>
 
-            <jsp:include page="formUsuario.jsp"/>
         </div>
 
         <div id="caixaJogo" class="col-dg-12">
@@ -90,8 +90,8 @@ and open the template in the editor.
                     <div class="col-dg-3">
                         <h3>Sobre</h3>
                         <ul>
-                            <li><a href="quemsomos.html">Quem somos</a></li>
-                            <li><a href="faleConosco.html">Fale Conosco</a></li>
+                            <li><a href="quemsomos.jsp">Quem somos</a></li>
+                            <li><a href="faleConosco.jsp">Fale Conosco</a></li>
                         </ul>
                     </div>
                     <div class="col-dg-3">
@@ -104,14 +104,13 @@ and open the template in the editor.
                     <div class="col-dg-3">
                         <h3>Nome Jogo</h3>
                         <ul>
-                            <li><a href="criarContar.html">Criar conta</a></li>
-                            <li><a href="jogar.html">Jogar</a></li>
+                            <li><a href="jogar.jsp">Jogar</a></li>
                         </ul>
                     </div>
                     <div class="col-dg-2">
                         <h3>O jogo</h3>
                         <ul>
-                            <li><a href="comoJogar.html">Como jogar</a></li>
+                            <li><a href="comoJogar.jsp">Como jogar</a></li>
                             <li><a href="rankings.jsp">Rankings</a></li>
                         </ul>
                     </div>

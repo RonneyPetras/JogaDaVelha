@@ -32,12 +32,12 @@ public class CadastroServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		UsuarioDAO usuarioDAO = new UsuarioDAO();
-		String login = request.getParameter("login");
+		UsuarioDAO usuarioDAO = new UsuarioDAO();//só faz operações com o banco
+		String login = request.getParameter("login");//pega os parametros 
 		String senha = request.getParameter("senha");
 		String nome = request.getParameter("nome");
 
-		UsuarioVo usuario = new UsuarioVo(null, nome, login, senha);
+		UsuarioVo usuario = new UsuarioVo(null, nome, login, senha);//tem os valores do meu usuario
 
 		usuarioDAO.Cadastrar(usuario);
 		response.sendRedirect("index.html");

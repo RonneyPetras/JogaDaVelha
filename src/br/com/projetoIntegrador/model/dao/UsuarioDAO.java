@@ -99,4 +99,21 @@ public class UsuarioDAO{
 		
 		//return usuario.id != null;//verifica e retorna se o cara tem um id, e se existe ou não
 	}
+	public boolean atualizarUsuario(UsuarioVo usuario){
+		String sql = "UPDATE usuario SET nome = '"+usuario.nome+"',senha = '"+usuario.senha+"' WHERE login = '"+usuario.login+"';";
+		Conexao conexao = new Conexao();
+		Connection conexaoMySql = conexao.getConexao();//Adiquire conexão com banco de dados
+		Statement statement;
+		try {
+			statement = conexaoMySql.createStatement();
+			int linhasAfetadas = statement.executeUpdate(sql);
+			if (linhasAfetadas > 0) {
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return false;
+	}
 }
