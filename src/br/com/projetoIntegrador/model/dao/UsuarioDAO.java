@@ -69,35 +69,43 @@ public class UsuarioDAO{
 				
 				return usuario;//retorna um usuario preenchido com os dados a alterar
 			}
-	public void Cadastrar(UsuarioVo usuario) {
+	public boolean Cadastrar(UsuarioVo usuario) {
 		//Query montada, cria usuario usuaros com login e senha e nome e id auto incre
 		String sqlConsulta = "SELECT * FROM usuario where login = '"+usuario.login+"';";
-		String sql = "INSERT INTO usuario(nome,login,senha) values( '"+usuario.nome+"', '"+usuario.login+"', '"+usuario.senha+"');";
-		//Seleciona o usuario passado pelo paramentro para procurar no banco
-		Conexao conexao = new Conexao();
-		Connection conexaoMySql = conexao.getConexao();//Adiquire conexão com banco de dados
+		Conexao conexaoConsulta = new Conexao();
+		Connection conexaoConsultaMySql = conexaoConsulta.getConexao();//Adiquire conexão com banco de dados
 		try {
-			Statement statement = conexaoMySql.createStatement();//Faz a ponte entre a aplicação e o banco
+			Statement statementConsulta = conexaoConsultaMySql.createStatement();//Faz a ponte entre a aplicação e o banco
 			
-			//ResultSet resultSet = statement.executeQuery(sql);//Executa a instrução e devolve um resultado
-			statement.executeUpdate(sql);
+			ResultSet resultSet = statementConsulta.executeQuery(sqlConsulta);//Executa a instrução e devolve um resultado
 			
-			/*if (resultSet.next()){//verifica se retornou registro no banco de dados
-				Integer id = resultSet.getInt("id");
-				String login = resultSet.getString("login");
-				String senha = resultSet.getString("senha");
-				String nome = resultSet.getString("nome");
-				usuario.nome = nome;//pega os dados e preenche o usuario e id
-				usuario.id = id;
+			if (resultSet.next()){//verifica se retornou registro no banco de dados
+				return false;
+			}
+			else {
+				String sql = "INSERT INTO usuario(nome,login,senha) values( '"+usuario.nome+"', '"+usuario.login+"', '"+usuario.senha+"');";
+				//Seleciona o usuario passado pelo paramentro para procurar no banco
+				Conexao conexao = new Conexao();
+				Connection conexaoMySql = conexao.getConexao();//Adiquire conexão com banco de dados
+				try {
+					Statement statement = conexaoMySql.createStatement();//Faz a ponte entre a aplicação e o banco
+					
+					//Cria a conta
+					statement.executeUpdate(sql);
+					
+				} catch (SQLException e) {
+			
+					e.printStackTrace();
+				}
 				
-			}*/
+			}
 			
 		} catch (SQLException e) {
 	
 			e.printStackTrace();
 		}
+		return true;
 		
-		//return usuario.id != null;//verifica e retorna se o cara tem um id, e se existe ou não
 	}
 	public boolean atualizarUsuario(UsuarioVo usuario){
 		String sql = "UPDATE usuario SET nome = '"+usuario.nome+"',senha = '"+usuario.senha+"' WHERE login = '"+usuario.login+"';";
@@ -116,4 +124,29 @@ public class UsuarioDAO{
 		}
 		return false;
 	}
+	
+	public boolean DeletarDados(UsuarioVo usuario){
+		String sql = "DELETE FROM usuario where login = '"+usuario.login+"';";
+		String sqlConsulta = "SELECT * FROM usuario where login = '"+usuario.login+"';";
+		//Seleciona o usuario passado pelo paramentro para procurar no banco
+		Conexao conexao = new Conexao();
+		Connection conexaoMySql = conexao.getConexao();//Adiquire conexão com banco de dados
+		try {
+			Statement statement = conexaoMySql.createStatement();//Faz a ponte entre a aplicação e o banco
+			
+			ResultSet resultSet = statement.executeQuery(sqlConsulta);//Executa a instrução e devolve um resultado
+			
+			if (resultSet.next()){//verifica se retornou registro no banco de dados
+				statement.executeUpdate(sql);
+				return true;
+			}
+			
+		} catch (SQLException e) {
+	
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
+		
 }
