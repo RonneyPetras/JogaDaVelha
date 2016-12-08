@@ -2,14 +2,18 @@ package br.com.projetoIntegrador.control.servlets;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.xml.ws.Dispatch;
 
 import br.com.projetoIntegrador.model.dao.UsuarioDAO;
 import br.com.projetoIntegrador.model.vo.UsuarioVo;
+import sun.rmi.server.Dispatcher;
 
 /**
  * Servlet implementation class LoginServlet
@@ -39,8 +43,22 @@ public class CadastroServlet extends HttpServlet {
 
 		UsuarioVo usuario = new UsuarioVo(null, nome, login, senha);//tem os valores do meu usuario
 
-		usuarioDAO.Cadastrar(usuario);
-		response.sendRedirect("index.html");
+		if (usuarioDAO.Cadastrar(usuario)){
+			HttpSession sessao = request.getSession();
+			sessao.setAttribute("login", usuario.login);
+			sessao.setAttribute("senha", usuario.senha);
+			request.getSession().setAttribute("logado", new Boolean(true));
+			response.sendRedirect("inicio.jsp");
+			return;
+		}
+		else {
+			response.sendRedirect("cadastrar.html");
+			return;
+		}
+		
+		
+		
+	
 
  		// HttpSession sessao = request.getSession();
 		// sessao.setAttribute(logado, "");
