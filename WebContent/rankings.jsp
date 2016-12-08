@@ -1,4 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!--
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
@@ -11,11 +14,6 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="css/frame.css" rel="stylesheet" type="text/css"/>
         <link href="css/estilo.css" rel="stylesheet" type="text/css"/>
-        <style>
-            .jogo {
-
-            }
-        </style>
         <script>
             
         </script>
@@ -28,7 +26,14 @@ and open the template in the editor.
             <div class="col-dg-8 vazio">
 
             </div>
-            <jsp:include page="formUsuario.jsp"/>
+            <c:choose>
+			<c:when test="${logado}">
+				<jsp:include page="formUsuario.jsp" />
+			</c:when>
+			<c:otherwise>
+				<jsp:include page="formNaoLogado.jsp" />
+			</c:otherwise>
+		</c:choose>
             <div class="col-dg-2">
 
             </div>

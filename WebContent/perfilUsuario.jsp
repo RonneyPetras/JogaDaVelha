@@ -1,21 +1,17 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:choose>
+	<c:when test="${logado}">
+
+		<html>
 <head>
 <title>Como jogar</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="css/frame.css" rel="stylesheet" type="text/css" />
 <link href="css/estilo.css" rel="stylesheet" type="text/css" />
-<style>
-.jogo {
-	
-}
-</style>
 <script src="js/utils.js" type="text/javascript"></script>
 <script>
 	
@@ -27,7 +23,7 @@ and open the template in the editor.
 	</div>
 	<div class="col-dg-12 ">
 		<div class="col-dg-8 vazio"></div>
-		<jsp:include page="formUsuario.jsp"/>
+		<jsp:include page="formUsuario.jsp" />
 
 		<div class="col-dg-2"></div>
 	</div>
@@ -51,57 +47,46 @@ and open the template in the editor.
 			<div>
 
 				<div id="formulario" class="col-dg-8 cor conteudo">
-						<h1>Perfil Usuário</h1>
+					<h1>Perfil Usuário</h1>
 					<form action="AtualizarUsuario" method="post">
 
-                    <!-- DADOS PESSOAIS-->
-                    <fieldset>
-                        <legend>Dados Pessoais</legend>
-                        <table cellspacing="10">
-                            <tr>
-                                <td>
-                                    <label for="nome">Nome: </label>
-                                </td>
-                                <td align="left">
-                                    <input type="text" name="nome" value="${nome}">
-                                </td>
-                                </tr>
-                                <tr>
-                                <td>
-                                    <label for="login">login: </label>
-                                </td>
-                                <td align="left">
-                                    <label>${login}</label>
-                                </td>
-                            </tr>
-                            
-                        
-                            <tr>
-                                <td>
-                                    <label for="senha">Senha: </label>
-                                </td>
-                                <td align="left">
-                                    <input type="password" name="senha">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label for="passconfirm">Confirme a senha: </label>
-                                </td>
-                                <td align="left">
-                                    <input type="password" name="passconfirm">
-                                </td>
-                                
-                            </tr>
-                        </table>
-                    </fieldset>
+						<!-- DADOS PESSOAIS-->
+						<fieldset>
+							<legend>Dados Pessoais</legend>
+							<table cellspacing="10">
+								<tr>
+									<td><label for="nome">Nome: </label></td>
+									<td align="left"><input type="text" name="nome"
+										value="${nome}"></td>
+								</tr>
+								<tr>
+									<td><label for="login">login: </label></td>
+									<td align="left"><label>${login}</label></td>
+								</tr>
 
-                    <input type="submit" value="Cadastrar">
-                    <input type="reset" value="Limpar">
-					
 
-                </form>
+								<tr>
+									<td><label for="senha">Senha: </label></td>
+									<td align="left"><input type="password" name="senha">
+									</td>
+								</tr>
+								<tr>
+									<td><label for="passconfirm">Confirme a senha: </label></td>
+									<td align="left"><input type="password" name="passconfirm">
+									</td>
 
+								</tr>
+							</table>
+						</fieldset>
+
+						<input type="submit" value="Atualizar"> <input
+							type="reset" value="Limpar">
+
+
+					</form>
+					<form action="Deletar" method="post">
+						<input type="submit" value="Apagar Conta">
+					</form>
 				</div>
 			</div>
 		</div>
@@ -161,4 +146,9 @@ and open the template in the editor.
 	</div>
 
 </body>
-</html>
+		</html>
+	</c:when>
+	<c:otherwise>
+		<c:redirect url="inicio.jsp" />
+	</c:otherwise>
+</c:choose>
