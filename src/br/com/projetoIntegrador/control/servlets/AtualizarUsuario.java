@@ -33,10 +33,19 @@ public class AtualizarUsuario extends HttpServlet {
 		String login = (String) sessao.getAttribute("login");
 		String senha = request.getParameter("senha");
 		String nome = request.getParameter("nome");
-
+		
 		UsuarioVo usuario = new UsuarioVo(null, nome, login, senha);
 		usuarioDAO.atualizarUsuario(usuario);
-		response.sendRedirect("index.html");
+		
+		//Execura e retorna os dados do usuario(login, nome etc)
+		UsuarioVo usuarioBanco = usuarioDAO.buscarUsuario(login, senha);
+		//Seta na sessão os dados do usuario logado
+		sessao.setAttribute("login", usuarioBanco.login);
+		sessao.setAttribute("senha", usuarioBanco.senha);
+		sessao.setAttribute("nome", usuarioBanco.nome);
+		
+		//response.sendRedirect("index.jsp");
+		response.sendRedirect("perfilUsuario.jsp");
 	}
 
 }
