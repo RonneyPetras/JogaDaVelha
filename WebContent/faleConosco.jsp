@@ -1,4 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!--
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
@@ -9,6 +12,22 @@ and open the template in the editor.
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="apple-touch-icon" sizes="57x57" href="img/icons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="img/icons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="img/icons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="img/icons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="img/icons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="img/icons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="img/icons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="img/icons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="img/icons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="img/icons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="img/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="img/icons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="img/icons/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="img/icons/ms-icon-144x144.png">
         <link href="css/frame.css" rel="stylesheet" type="text/css"/>
         <link href="css/estilo.css" rel="stylesheet" type="text/css"/>
         <style>
@@ -22,22 +41,24 @@ and open the template in the editor.
         </script>
     </head>
     <body>
-        <div class="col-dg-12" id="nomeSite">
-            <span >"Nome do Jogo"</span>
-        </div>
-        <div class="col-dg-12 ">
-            <div class="col-dg-8 vazio">
-
-            </div>
-            <div class="col-dg-2 login" id="minhaDiv">
-                
-                
-                <a href="perfilUsuario.jsp">nome Usuário</a>
-            </div>
-            <div class="col-dg-2">
-
-            </div>
-        </div>
+        <div id="areaLogoAndLogin" class="col-dg-12">
+		<div class="col-dg-2 vazio">
+		
+		</div>
+		<div id="caixaLogo" class="col-dg-6 vazio">
+			<img id="logo" src="img/logo.png">
+		</div>
+		<div class="col-dg-4">
+		<c:choose>
+			<c:when test="${logado}">
+				<jsp:include page="formUsuario.jsp" />
+			</c:when>
+			<c:otherwise>
+				<jsp:include page="formNaoLogado.jsp" />
+			</c:otherwise>
+		</c:choose>
+		</div>
+	</div>
 
         <div id="caixaMenu" class="col-dg-12">
             <div class="col-dg-2 vazio">
