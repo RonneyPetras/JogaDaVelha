@@ -16,7 +16,30 @@ public class Recebe extends HttpServlet {
        
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		ServletContext context = getServletContext();
-		context.setAttribute("valor", request.getParameter("valor"));
+		
+		
+		String a = request.getParameter("a");
+		String b = request.getParameter("b");
+		String c = request.getParameter("c");
+		String d = request.getParameter("d");
+		String e = request.getParameter("e");
+		String f = request.getParameter("f");
+		String g = request.getParameter("g");
+		String h = request.getParameter("h");
+		String i = request.getParameter("i");
+		
+		context.setAttribute("a",a);
+		context.setAttribute("b",b);
+		context.setAttribute("c",c);
+		context.setAttribute("d",d);
+		context.setAttribute("e",e);
+		context.setAttribute("f",f);
+		context.setAttribute("g",g);
+		context.setAttribute("h",h);
+		context.setAttribute("i",i);
+		
+		//context.setAttribute("valor", request.getParameter("valor"));
 	}
 }

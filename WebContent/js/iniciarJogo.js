@@ -12,6 +12,8 @@ var qtdVitoriaO = 0;
 var qtdVitoriaX = 0;
 var vetCorVitoria = new Array(3);
 
+document.getElementById('txtJogador').innerHTML = ${jogador};
+
 function mudarCor(idCaixa, cor) {
     if (habilitar == true) {
         document.getElementById(idCaixa).style.backgroundColor = cor;
@@ -67,7 +69,7 @@ function inserirMarcacao(idTxt, p, q) {
         document.getElementById('txtJogador').innerHTML = "É a vez do jogador " + trocar;
     }
 
-
+    onclick('txt' + p + q);
 }
 
 function novoJogo() {
@@ -176,3 +178,4 @@ function fimDeJogo(xisOuBola) {
     else
         ganhador == '';
 }
+

@@ -1,5 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html>
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+ 
 <html>
     <head>
         <title>Jogo da velha</title>
@@ -7,6 +12,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="css/iniciarJogo.css" rel="stylesheet" type="text/css"/>
         <script src="js/iniciarJogo.js" type="text/javascript"></script>
+        <script src="js/ajax.js" type="text/javascript"></script>
     </head>
     <body>
         <div id="bordaMenu"></div>
@@ -15,7 +21,7 @@
         </div>
 
         <div id="vezJogador">
-            <p id="txtJogador">É a vez do jogador X</p>
+            <p id="txtJogador">JOGADOR </p>
         </div>
 
         <div id='tabulheiro'>
