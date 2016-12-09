@@ -10,6 +10,27 @@ body {
 .vazio {
     height: 1px;
 }
+#caixaLogo{
+	text-align: center;	
+}
+#header{
+	height: 137px;
+}
+#include{
+	text-align: right;	
+	width: 100%;
+	padding-top: 90px;
+}
+#include form{
+	display: inline;
+}
+#txtMsgUsuario{
+	display: block;
+}
+#logo {
+	margin-top: -2px;
+	height: 165px;
+}
 .span {
     display: block;
 }
@@ -31,19 +52,25 @@ body {
 .login {
     text-align: center;
 }
+#caixaMenu{
+	height: 40px;
+}
 #menu {
     padding: 0px;
     text-align: center;
 }
-
+ul {
+	margin: 0;
+	padding: 0;
+}
 #menu li {
     display: inline;
     background-color: #7B0828;
-
+	
 }
 #menu li a {
     display: block;
-    height: 40px;
+   	height: 40px;
     color: white;
     padding: 10px;
     text-decoration: none;
