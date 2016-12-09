@@ -48,7 +48,7 @@ public class DeletarConta extends HttpServlet {
 		UsuarioVo usuario = new UsuarioVo(null, null, login, null);
 		if (usuarioDAO.DeletarDados(usuario)){
 			request.getSession().invalidate();
-			response.sendRedirect("inicio.jsp");
+			response.sendRedirect("index.jsp");
 		}
 		else {
 			

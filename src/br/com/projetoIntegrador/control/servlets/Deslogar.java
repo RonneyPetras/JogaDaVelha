@@ -27,7 +27,7 @@ public class Deslogar extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.sendRedirect("cadastrar.html");
+		response.sendRedirect("cadastrar.jsp");
 	}
 
 	/**
@@ -37,7 +37,6 @@ public class Deslogar extends HttpServlet {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
 		request.getSession().invalidate();
-		//response.sendRedirect("index.html");
 		String referer = request.getHeader("Referer");
 		response.sendRedirect(referer);
 	}

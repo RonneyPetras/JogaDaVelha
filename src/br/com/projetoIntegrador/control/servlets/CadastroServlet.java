@@ -48,11 +48,11 @@ public class CadastroServlet extends HttpServlet {
 			sessao.setAttribute("login", usuario.login);
 			sessao.setAttribute("senha", usuario.senha);
 			request.getSession().setAttribute("logado", new Boolean(true));
-			response.sendRedirect("inicio.jsp");
+			response.sendRedirect("index.jsp");
 			return;
 		}
 		else {
-			response.sendRedirect("cadastrar.html");
+			response.sendRedirect("cadastrar.jsp");
 			return;
 		}
 		

@@ -46,6 +46,13 @@ public class LoginServlet extends HttpServlet {
 			sessao.setAttribute("senha", usuario.senha);
 			request.getSession().setAttribute("logado", new Boolean(true));
 			request.getSession().setAttribute("erroLogin", new Boolean(false));
+			//Execura e retorna os dados do usuario(login, nome etc)
+			UsuarioVo usuarioBanco = usuarioDAO.buscarUsuario(login, senha);
+			//Seta na sessão os dados do usuario logado
+			sessao.setAttribute("login", usuarioBanco.login);
+			sessao.setAttribute("senha", usuarioBanco.senha);
+			sessao.setAttribute("nome", usuarioBanco.nome);
+			//Recarrega a pagina
 			String referer = request.getHeader("Referer");
 			response.sendRedirect(referer);
 		} else {
