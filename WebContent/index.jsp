@@ -2,11 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+
 <html>
 <head>
 <title>Nome do site/jogo</title>
@@ -31,14 +27,12 @@ and open the template in the editor.
 <meta name="theme-color" content="#ffffff">
 <link href="css/frame.css" rel="stylesheet" type="text/css" />
 <link href="css/estilo.css" rel="stylesheet" type="text/css" />
-<link href="css/jogar.css" rel="stylesheet" type="text/css" />
-<script src="js/jogar.js" type="text/javascript"></script>
 <script>
 	
 </script>
 </head>
 <body>
-
+	
 	<div id="header" class="col-dg-12">
 		<div class="col-dg-2 vazio"></div>
 		
@@ -69,17 +63,12 @@ and open the template in the editor.
 		</div>
 		<div class="col-dg-2 vazio"></div>
 	</div>
-	<div class="col-dg-12 ">
-		
-		
 
-		<div class="col-dg-2"></div>
-	</div>
 
-	<div class="col-dg-12">
+	<div id="caixaMenu" class="col-dg-12">
 		<div class="col-dg-2 vazio"></div>
 
-		<div id="caixaMenu" class="col-dg-8 ">
+		<div class="col-dg-8 ">
 			<ul id="menu">
 				<li class="col-dg-3"><a href="index.jsp">Inicio</a></li>
 				<li class="col-dg-3"><a href="jogar.jsp">Jogar</a></li>
@@ -88,51 +77,18 @@ and open the template in the editor.
 			</ul>
 		</div>
 
-		<div class="col-dg-2"></div>
 	</div>
 
 	<div id="caixaJogo" class="col-dg-12">
 		<div class="col-dg-2 cor2"></div>
 
-		<c:choose>
-			<c:when test="${logado}">
-
-				<div class="col-dg-8 cor conteudo" onload="verificaLogin()">
-					<div id="caixaVerificaLogin" class="col-dg-12">
-						<h2>Bem Vindo</h2>
-						<div id="caixaJogar">
-							<div class="col-dg-3">
-								<div id="usuario">
-									usuario
-									<div id="infoUsuario">informações</div>
-
-								</div>
-
-							</div>
-							<div class="col-dg-6">
-								<div id="menuJogo">
-									Menu
-									<div id="iniciarJogo">
-										<button onclick="iniciarJogo()">Iniciar Jogo!</button>
-									</div>
-								</div>
-
-							</div>
-							<div class="col-dg-3">
-								<div id="pessoasOnline">
-									pessoas onlines
-									<div id="nomesPessoasOnline">nomes</div>
-								</div>
-
-							</div>
-						</div>
-					</div>
-				</div>
-			</c:when>
-			<c:otherwise>
-				<div class="col-dg-8 cor conteudo" onload="verificaLogin()"></div>
-			</c:otherwise>
-		</c:choose>
+		<div class="col-dg-8 cor conteudo">
+			<h1 id="tit_index">Jogo da velha</h1>
+			<h2 id="txt_index">Jogue jogo da velha contra um adversário.</h2>
+			<div id="caixaImg2">
+				<img id="img2" src="img/jogoDaVelha.png" alt="" />
+			</div>
+		</div>
 
 		<div class="col-dg-2 cor2"></div>
 
@@ -164,7 +120,6 @@ and open the template in the editor.
 				<div class="col-dg-3">
 					<h3>Nome Jogo</h3>
 					<ul>
-						<li><a href="cadastrar.jsp">Criar conta</a></li>
 						<li><a href="jogar.jsp">Jogar</a></li>
 					</ul>
 				</div>
@@ -190,3 +145,4 @@ and open the template in the editor.
 
 </body>
 </html>
+

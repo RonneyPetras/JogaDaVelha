@@ -40,23 +40,35 @@ and open the template in the editor.
 </script>
 </head>
 <body>
-	<div id="areaLogoAndLogin" class="col-dg-12">
-		<div class="col-dg-2 vazio">
+	<div id="header" class="col-dg-12">
+		<div class="col-dg-2 vazio"></div>
 		
-		</div>
 		<div id="caixaLogo" class="col-dg-6 vazio">
 			<img id="logo" src="img/logo.png">
 		</div>
-		<div class="col-dg-4">
+		<div class="col-dg-2">
 		<c:choose>
 			<c:when test="${logado}">
 				<jsp:include page="formUsuario.jsp" />
 			</c:when>
+			
 			<c:otherwise>
-				<jsp:include page="formNaoLogado.jsp" />
+				<c:choose>
+					<c:when test="${erroLogin}">
+						<jsp:include page="formNaoLogado.jsp" />
+						<jsp:include page="erro.jsp" />
+					</c:when>
+
+					<c:otherwise>
+					<jsp:include page="formNaoLogado.jsp" />
+					</c:otherwise>
+
+				</c:choose>
+
 			</c:otherwise>
 		</c:choose>
 		</div>
+		<div class="col-dg-2 vazio"></div>
 	</div>
 
 	<div id="caixaMenu" class="col-dg-12">
@@ -64,7 +76,7 @@ and open the template in the editor.
 
 		<div class="col-dg-8 ">
 			<ul id="menu">
-				<li class="col-dg-3"><a href="inicio.jsp">Inicio</a></li>
+				<li class="col-dg-3"><a href="index.jsp">Inicio</a></li>
 				<li class="col-dg-3"><a href="jogar.jsp">Jogar</a></li>
 				<li class="col-dg-3"><a href="comoJogar.jsp">Como Jogar</a></li>
 				<li class="col-dg-3"><a href="rankings.jsp">Rankings</a>
@@ -108,7 +120,7 @@ and open the template in the editor.
 				<div class="col-dg-3">
 					<h3>Sobre</h3>
 					<ul>
-						<li><a href="quemsomos.jsp">Quem somos</a></li>
+						<li><a href="quemSomos.jsp">Quem somos</a></li>
 						<li><a href="faleConosco.jsp">Fale Conosco</a></li>
 					</ul>
 				</div>
@@ -122,7 +134,7 @@ and open the template in the editor.
 				<div class="col-dg-3">
 					<h3>Nome Jogo</h3>
 					<ul>
-						<li><a href="criarContar.html">Criar conta</a></li>
+						<li><a href="cadastrar.jsp">Criar conta</a></li>
 						<li><a href="jogar.jsp">Jogar</a></li>
 					</ul>
 				</div>

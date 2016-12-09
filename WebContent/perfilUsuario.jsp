@@ -34,21 +34,42 @@
 </script>
 </head>
 <body>
-	<div class="col-dg-12" id="nomeSite">
-		<span>Jogo da Velha</span>
-	</div>
-	<div class="col-dg-12 ">
-		<div class="col-dg-8 vazio"></div>
-		<jsp:include page="formUsuario.jsp" />
+	<div id="header" class="col-dg-12">
+		<div class="col-dg-2 vazio"></div>
+		
+		<div id="caixaLogo" class="col-dg-6 vazio">
+			<img id="logo" src="img/logo.png">
+		</div>
+		<div class="col-dg-2">
+		<c:choose>
+			<c:when test="${logado}">
+				<jsp:include page="formUsuario.jsp" />
+			</c:when>
+			
+			<c:otherwise>
+				<c:choose>
+					<c:when test="${erroLogin}">
+						<jsp:include page="formNaoLogado.jsp" />
+						<jsp:include page="erro.jsp" />
+					</c:when>
 
-		<div class="col-dg-2"></div>
+					<c:otherwise>
+					<jsp:include page="formNaoLogado.jsp" />
+					</c:otherwise>
+
+				</c:choose>
+
+			</c:otherwise>
+		</c:choose>
+		</div>
+		<div class="col-dg-2 vazio"></div>
 	</div>
 
 	<div id="caixaMenu" class="col-dg-12">
 		<div class="col-dg-2 vazio"></div>
 		<div class="col-dg-8 ">
 			<ul id="menu">
-				<li class="col-dg-3"><a href="inicio.jsp">Inicio</a></li>
+				<li class="col-dg-3"><a href="index.jsp">Inicio</a></li>
 				<li class="col-dg-3"><a href="jogar.jsp">Jogar</a></li>
 				<li class="col-dg-3"><a href="comoJogar.jsp">Como Jogar</a></li>
 				<li class="col-dg-3"><a href="rankings.jsp">Rankings</a>
@@ -60,12 +81,9 @@
 		<div class="col-dg-2 cor2"></div>
 
 		<div class="col-dg-8 cor conteudo">
-			<div>
-
 				<div id="formulario" class="col-dg-8 cor conteudo">
 					<h1>Perfil Usuário</h1>
 					<form action="AtualizarUsuario" method="post">
-
 						<!-- DADOS PESSOAIS-->
 						<fieldset>
 							<legend>Dados Pessoais</legend>
@@ -94,7 +112,6 @@
 								</tr>
 							</table>
 						</fieldset>
-
 						<input type="submit" value="Atualizar"> <input
 							type="reset" value="Limpar">
 
@@ -104,7 +121,7 @@
 						<input type="submit" value="Apagar Conta">
 					</form>
 				</div>
-			</div>
+			
 		</div>
 
 		<div class="col-dg-2 cor2"></div>
@@ -123,7 +140,7 @@
 				<div class="col-dg-3">
 					<h3>Sobre</h3>
 					<ul>
-						<li><a href="quemsomos.jsp">Quem somos</a></li>
+						<li><a href="quemSomos.jsp">Quem somos</a></li>
 						<li><a href="faleConosco.jsp">Fale Conosco</a></li>
 					</ul>
 				</div>
@@ -137,7 +154,7 @@
 				<div class="col-dg-3">
 					<h3>Nome Jogo</h3>
 					<ul>
-						<li><a href="criarContar.html">Criar conta</a></li>
+						<li><a href="cadastrar.jsp">Criar conta</a></li>
 						<li><a href="jogar.jsp">Jogar</a></li>
 					</ul>
 				</div>
@@ -165,6 +182,6 @@
 		</html>
 	</c:when>
 	<c:otherwise>
-		<c:redirect url="inicio.jsp" />
+		<c:redirect url="index.jsp" />
 	</c:otherwise>
 </c:choose>
