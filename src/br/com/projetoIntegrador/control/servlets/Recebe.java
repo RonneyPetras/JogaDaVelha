@@ -8,6 +8,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.google.gson.Gson;
+
+import br.com.projetoIntegrador.model.vo.Posicoes;
 
 
 @WebServlet("/rec")
@@ -16,8 +21,6 @@ public class Recebe extends HttpServlet {
        
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		ServletContext context = getServletContext();
 		
 		
 		String a = request.getParameter("a");
@@ -29,17 +32,14 @@ public class Recebe extends HttpServlet {
 		String g = request.getParameter("g");
 		String h = request.getParameter("h");
 		String i = request.getParameter("i");
+		String turno = request.getParameter("turno");
 		
-		context.setAttribute("a",a);
-		context.setAttribute("b",b);
-		context.setAttribute("c",c);
-		context.setAttribute("d",d);
-		context.setAttribute("e",e);
-		context.setAttribute("f",f);
-		context.setAttribute("g",g);
-		context.setAttribute("h",h);
-		context.setAttribute("i",i);
+		Posicoes posicoes = new Posicoes(a, b, c, d, e, f, g, h, i, turno); 
 		
-		//context.setAttribute("valor", request.getParameter("valor"));
+		String posicoesJson = new Gson().toJson(posicoes);
+		
+		ServletContext context = getServletContext();
+		context.setAttribute("posicoes", posicoesJson);
+		
 	}
 }

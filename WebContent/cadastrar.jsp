@@ -9,7 +9,7 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>Rankings - Jogo da Velha</title>
+        <title>Nome do site/jogo</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="apple-touch-icon" sizes="57x57" href="img/icons/apple-icon-57x57.png">
@@ -31,40 +31,42 @@ and open the template in the editor.
         <link href="css/frame.css" rel="stylesheet" type="text/css"/>
         <link href="css/estilo.css" rel="stylesheet" type="text/css"/>
         <script>
-            
+           
+
         </script>
     </head>
     <body>
-        <div id="header" class="col-dg-12">
-		<div class="col-dg-2 vazio"></div>
-		
-		<div id="caixaLogo" class="col-dg-6 vazio">
-			<img id="logo" src="img/logo.png">
-		</div>
-		<div class="col-dg-2">
-		<c:choose>
-			<c:when test="${logado}">
-				<jsp:include page="formUsuario.jsp" />
-			</c:when>
+    
+    	<div id="header" class="col-dg-12">
+			<div class="col-dg-2 vazio"></div>
 			
-			<c:otherwise>
-				<c:choose>
-					<c:when test="${erroLogin}">
+			<div id="caixaLogo" class="col-dg-6 vazio">
+				<img id="logo" src="img/logo.png">
+			</div>
+			<div class="col-dg-2">
+			<c:choose>
+				<c:when test="${logado}">
+					<jsp:include page="formUsuario.jsp" />
+				</c:when>
+				
+				<c:otherwise>
+					<c:choose>
+						<c:when test="${erroLogin}">
+							<jsp:include page="formNaoLogado.jsp" />
+							<jsp:include page="erro.jsp" />
+						</c:when>
+	
+						<c:otherwise>
 						<jsp:include page="formNaoLogado.jsp" />
-						<jsp:include page="erro.jsp" />
-					</c:when>
-
-					<c:otherwise>
-					<jsp:include page="formNaoLogado.jsp" />
-					</c:otherwise>
-
-				</c:choose>
-
-			</c:otherwise>
-		</c:choose>
-		</div>
-		<div class="col-dg-2 vazio"></div>
-	</div>
+						</c:otherwise>
+	
+					</c:choose>
+	
+				</c:otherwise>
+			</c:choose>
+			</div>
+			<div class="col-dg-2 vazio"></div>
+		</div>   
 
         <div id="caixaMenu" class="col-dg-12">
             <div class="col-dg-2 vazio">
@@ -97,46 +99,57 @@ and open the template in the editor.
 
             </div>
 
-            <div class="col-dg-8 cor conteudo" style="overflow-x:auto;">
-                <p id="p_ranking">Ranking dos 5 melhores jogadores</p>
-                <table class="table col-dg-12">
-                    <tr>
-                        <td class="td_pos col-dg-3">Posição</td>
-                        <td class="td_nome col-dg-3">Nome</td>
-                        <td class="td_vit col-dg-3">Vitórias</td>
-                        <td class="td_der col-dg-3">Derrotas</td>
-                    </tr>
-                    <tr>
-                        <td class="td_pos">1°</td>
-                        <td class="td_nome">Jogador1</td>
-                        <td class="td_vit">5</td>
-                        <td class="td_der">1</td>
-                    </tr>
-                    <tr>
-                        <td class="td_pos">2°</td>
-                        <td class="td_nome">Jogador2</td>
-                        <td class="td_vit">4</td>
-                        <td class="td_der">2</td>
-                    </tr>
-                    <tr>
-                        <td class="td_pos">3°</td>
-                        <td class="td_nome">Jogador3</td>
-                        <td class="td_vit">3</td>
-                        <td class="td_der">3</td>
-                    </tr>
-                    <tr>
-                        <td class="td_pos">4°</td>
-                        <td class="td_nome">Jogador4</td>
-                        <td class="td_vit">2</td>
-                        <td class="td_der">4</td>
-                    </tr>
-                    <tr>
-                        <td class="td_pos">5°</td>
-                        <td class="td_nome">Jogador5</td>
-                        <td class="td_vit">1</td>
-                        <td class="td_der">5</td>
-                    </tr>
-                </table>
+            <div class="col-dg-8 cor conteudo">
+                <h1> Criar Usuário </h1>
+                <form action="Cadastro" method="post">
+
+                    <!-- DADOS PESSOAIS-->
+                    <fieldset>
+                        <legend>Dados Pessoais</legend>
+                        <table cellspacing="10">
+                            <tr>
+                                <td>
+                                    <label for="nome">Nome: </label>
+                                </td>
+                                <td align="left">
+                                    <input type="text" name="nome">
+                                </td>
+                                </tr>
+                                <tr>
+                                <td>
+                                    <label for="login">login: </label>
+                                </td>
+                                <td align="left">
+                                    <input type="text" name="login">
+                                </td>
+                            </tr>
+                            
+                        
+                            <tr>
+                                <td>
+                                    <label for="senha">Senha: </label>
+                                </td>
+                                <td align="left">
+                                    <input type="password" name="senha">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="passconfirm">Confirme a senha: </label>
+                                </td>
+                                <td align="left">
+                                    <input type="password" name="passconfirm">
+                                </td>
+                                
+                            </tr>
+                        </table>
+                    </fieldset>
+
+                    <input type="submit" value="Cadastrar">
+                    <input type="reset" value="Limpar">
+					
+
+                </form>
             </div>
 
             <div class="col-dg-2 cor2">

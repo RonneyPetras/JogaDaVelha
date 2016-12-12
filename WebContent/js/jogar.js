@@ -10,6 +10,6 @@ function verificaLogin() {
 }
 
 function iniciarJogo() {
-    window.open("iniciarJogo.html", "telaJogo", "toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=400,width=600,height=700");
+    window.open("iniciarJogo.jsp", "telaJogo", "toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=400,width=600,height=700");
     
 }

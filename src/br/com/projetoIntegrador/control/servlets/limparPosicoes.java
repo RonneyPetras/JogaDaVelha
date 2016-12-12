@@ -9,16 +9,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class envia
- */
-@WebServlet("/envia")
-public class Envia extends HttpServlet {
+
+@WebServlet("/clear")
+public class limparPosicoes extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		ServletContext context = getServletContext();
-		String posicoes = (String) context.getAttribute("posicoes");
-		response.getWriter().print(posicoes);
-
-
+		context.setAttribute("posicoes", "");
+		
 	}
+
+
 }

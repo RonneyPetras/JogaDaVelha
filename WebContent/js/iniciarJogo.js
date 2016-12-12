@@ -12,7 +12,28 @@ var qtdVitoriaO = 0;
 var qtdVitoriaX = 0;
 var vetCorVitoria = new Array(3);
 
-document.getElementById('txtJogador').innerHTML = ${jogador};
+document.getElementById('txtJogador').innerHTML = g_stringMatriz;
+
+function primeiroJogador(){
+	//verificar se as casas estao vazias para escolher entre X ou O 
+    var verificarvazio = 0;
+    for(i=0; i<3; i++){
+    	for(j=0; j<3 ;j++){
+    		if(document.getElementById('txt'+i+j).innerHTML != ''){
+    			verificarvazio++;
+    		}
+    	}
+    }
+    
+    if(verificarvazio%2==0){
+    	trocar = "X";
+    }
+    else{
+    	trocar = "O";
+    }
+    alert(verificarvazio);
+    document.getElementById('txtJogador').innerHTML = trocar;
+}
 
 function mudarCor(idCaixa, cor) {
     if (habilitar == true) {
@@ -24,6 +45,9 @@ function mudarCor(idCaixa, cor) {
 function inserirMarcacao(idTxt, p, q) {
     if (document.getElementById(idTxt).innerHTML == '' && habilitar == true) {
         cont++;
+
+        primeiroJogador()
+        
         document.getElementById(idTxt).innerHTML = trocar;
 
         for (z = 0; z < 3; z++) {
@@ -65,11 +89,13 @@ function inserirMarcacao(idTxt, p, q) {
             fimDeJogo(trocar);
         }
 
-        (trocar == "X") ? trocar = "O" : trocar = "X";
+        	
+       // (trocar == "X") ? trocar = "O" : trocar = "X";
         document.getElementById('txtJogador').innerHTML = "É a vez do jogador " + trocar;
     }
-
+    
     onclick('txt' + p + q);
+    
 }
 
 function novoJogo() {
@@ -85,6 +111,8 @@ function novoJogo() {
     fim2 = 0;
     fim3 = 0;
     fim4 = 0;
+    
+    limparSessao();
 }
 
 function fimDeJogo(xisOuBola) {

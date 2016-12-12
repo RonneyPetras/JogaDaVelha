@@ -14,7 +14,7 @@ public class Conexao {
 				
 				e.printStackTrace();
 			}
-			return DriverManager.getConnection("jdbc:mysql://localhost/jogo_da_velha", "root", "admin");
+			return DriverManager.getConnection("jdbc:mysql://localhost/jogo_da_velha", "root", "");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

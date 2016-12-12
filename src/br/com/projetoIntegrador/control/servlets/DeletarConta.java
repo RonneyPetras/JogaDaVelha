@@ -12,40 +12,48 @@ import br.com.projetoIntegrador.model.dao.UsuarioDAO;
 import br.com.projetoIntegrador.model.vo.UsuarioVo;
 
 /**
- * Servlet implementation class AtualizarUsuario
+ * Servlet implementation class DeletarConta
  */
-@WebServlet("/AtualizarUsuario")
-public class AtualizarUsuario extends HttpServlet {
+@WebServlet("/Deletar")
+public class DeletarConta extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AtualizarUsuario() {
+    public DeletarConta() {
         super();
         // TODO Auto-generated constructor stub
     }
 
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+		
 		
 		UsuarioDAO usuarioDAO = new UsuarioDAO();
 		HttpSession sessao=request.getSession();
 		String login = (String) sessao.getAttribute("login");
-		String senha = request.getParameter("senha");
-		String nome = request.getParameter("nome");
-		
-		UsuarioVo usuario = new UsuarioVo(null, nome, login, senha);
-		usuarioDAO.atualizarUsuario(usuario);
-		
-		//Execura e retorna os dados do usuario(login, nome etc)
-		UsuarioVo usuarioBanco = usuarioDAO.buscarUsuario(login, senha);
-		//Seta na sessão os dados do usuario logado
-		sessao.setAttribute("login", usuarioBanco.login);
-		sessao.setAttribute("senha", usuarioBanco.senha);
-		sessao.setAttribute("nome", usuarioBanco.nome);
-		
-		//response.sendRedirect("index.jsp");
-		response.sendRedirect("perfilUsuario.jsp");
+		UsuarioVo usuario = new UsuarioVo(null, null, login, null);
+		if (usuarioDAO.DeletarDados(usuario)){
+			request.getSession().invalidate();
+			response.sendRedirect("index.jsp");
+		}
+		else {
+			
+		}
+
 	}
 
 }
