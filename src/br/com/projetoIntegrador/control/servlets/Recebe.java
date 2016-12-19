@@ -41,5 +41,13 @@ public class Recebe extends HttpServlet {
 		ServletContext context = getServletContext();
 		context.setAttribute("posicoes", posicoesJson);
 		
+		HttpSession sessao = request.getSession();
+		String jogador = (String) sessao.getAttribute("jogador");
+		if(jogador==null){
+			if(turno.equals("O"))
+				sessao.setAttribute("jogador", "X");
+			else
+				sessao.setAttribute("jogador", "O");
+		}
 	}
 }

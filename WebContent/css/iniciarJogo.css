@@ -34,6 +34,9 @@ body {
     cursor: pointer;
     border-radius: 5px;
 }
+.caixa:HOVER{
+	background-color: lightblue;
+}
 .caixa p{
     padding: 0;
     margin: 0px;

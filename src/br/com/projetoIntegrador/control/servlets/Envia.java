@@ -14,11 +14,16 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet("/envia")
 public class Envia extends HttpServlet {
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		response.setContentType("text/plain");
 		ServletContext context = getServletContext();
 		String posicoes = (String) context.getAttribute("posicoes");
-		response.getWriter().print(posicoes);
-
+		if (posicoes == null) {
+			response.getWriter().print("{}");
+		} else
+			response.getWriter().print(posicoes);
 
 	}
 }
