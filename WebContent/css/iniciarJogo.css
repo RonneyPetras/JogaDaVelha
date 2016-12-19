@@ -16,12 +16,17 @@ body {
     margin: 0;
     padding: 0;
 }
+#container{
+	position: relative;
+    left: 50%;
+    width: 580px;
+    margin-left: -290px;
+}
 #tabulheiro{
     width: 580px;
     height: 580px;
     background-color: black;
     margin: auto;
-
     padding: 5px;
     border-radius: 10px;
 }
@@ -111,4 +116,22 @@ body {
     height: 50px;
     font-size: 20px;
     padding-top: 1px;
+}
+
+#msg{
+	border: 5px gray solid;
+	width: 700px;
+    height: 100px;
+    border-radius: 5px;
+    position:absolute;
+    left:50%;
+    top:50%;
+    margin-left: -350px;
+    margin-top: -100px;
+    background-color: lightblue;
+    color: white;
+    display: none;
+    font-size: 30px;
+    text-align: center;
+    font-family: verdana;
 }

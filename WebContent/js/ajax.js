@@ -148,3 +148,4 @@ function limparSessao() {
 	xhttp2.send();
 	loop();
 }
+
